@@ -1,0 +1,13 @@
+<div>
+  <app-todo-list
+    [data]="favoriteData"
+    [title]="'Today TODO\'s'"
+    *ngIf="favoriteData.length;else empty"
+    (onDelete)="rootService.deleteTodo($event)"
+    (onTriggerFavorite)="rootService.onTriggerFavorite($event)"
+  >
+  </app-todo-list>
+  <ng-template #empty>
+    <span>No Favorites</span>
+  </ng-template>
+</div>

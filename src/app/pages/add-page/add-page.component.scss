@@ -1,0 +1,55 @@
+:host {
+  .addPageWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    > form {
+      gap: 2px;
+      width: 100%;
+      display: flex;
+      max-width: 332px;
+      align-items: center;
+      flex-direction: column;
+      justify-content: flex-start;
+
+
+      input {
+        height: 32px;
+        width: 100%;
+      }
+
+      .textarea {
+        width: 100%;
+        resize: none;
+        outline: none;
+        font-size: 14px;
+        padding: 4px 8px;
+      }
+
+      .input-group {
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+
+        input {
+          font-size: 12px;
+        }
+
+        button {
+          height: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            color: initial;
+            background-color: initial;
+          }
+        }
+
+      }
+    }
+  }
+}

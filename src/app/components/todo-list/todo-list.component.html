@@ -1,0 +1,37 @@
+<div class="todoContainer">
+
+  <header class="header">
+    <span class="header_title">{{title}}</span>
+  </header>
+  <section class="body">
+
+    <label class="todo" *ngFor="let option of data;index as idx">
+      <div class="todoLeft" [ngClass]="{isToday}">
+        <app-checkbox></app-checkbox>
+        <span class="checkboxLabel">{{option.title}}</span>
+      </div>
+      <div class="todoRight">
+        <div class="titleWrapper">
+          <span class="title">{{convertDateObjectToText(option.expirationDate)}}</span>
+          <span *ngIf="idx === 0" class="todoTitle">Created At</span>
+        </div>
+        <div class="titleWrapper" *ngIf="isToday">
+          <app-timer [initialTime]="option.time"></app-timer>
+          <span *ngIf="idx === 0" class="todoTitle">Time Left</span>
+        </div>
+        <div class="favorite" (click)="onTriggerFavorite.emit(option)">
+
+          <i class="bi bi-heart-fill" *ngIf="option.isFavorite;else iconRef"></i>
+          <ng-template #iconRef>
+          <i class="bi bi-heart"></i>
+          </ng-template>
+        </div>
+        <div class="deleteBtn" (click)="onDelete.emit(option)">
+          <i class="bi bi-x"></i>
+        </div>
+      </div>
+    </label>
+
+  </section>
+
+</div>

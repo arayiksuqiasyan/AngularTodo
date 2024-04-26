@@ -1,0 +1,17 @@
+@import "../../../styles";
+:host{
+  .timer{
+    width: 80px;
+    font-weight: 500;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    text-overflow: ellipsis;
+  }
+
+  &.lessThanAnHour{
+    .timer{
+      color: $visible-element-2;
+    }
+  }
+}

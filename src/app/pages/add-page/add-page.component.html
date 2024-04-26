@@ -1,0 +1,59 @@
+<div class="addPageWrapper">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="error-message-wrapper">
+      <input
+        type="text"
+        maxlength="100"
+        class="titleInput"
+        placeholder="Title..."
+        formControlName="title"
+        [value]="form.get('title')?.value"
+      />
+      <app-error-message
+        *ngIf="
+        form.controls['title']?.dirty &&
+        form.controls['title']?.touched &&
+        !form.controls['title']?.valid"
+        [errorMessage]="'Required'">
+      </app-error-message>
+    </div>
+
+    <textarea class="textarea" formControlName="description"></textarea>
+
+    <div class="error-message-wrapper mt-10">
+      <div class="input-group">
+        <input
+          readonly
+          name="dp"
+          ngbDatepicker
+          autoClose="true"
+          #d="ngbDatepicker"
+          (click)="d.toggle()"
+          class="form-control"
+          placeholder="Expiration Date"
+          formControlName="expirationDate"
+          (dateSelect)="onDateSelect()"
+          [minDate]="currentDate"
+          [datepickerClass]="'datepickerClass-custom-class'"
+        />
+        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"></button>
+      </div>
+      <app-error-message
+        *ngIf="
+        form.controls['expirationDate']?.dirty &&
+        form.controls['expirationDate']?.touched &&
+        !form.controls['expirationDate']?.valid"
+        [errorMessage]="'Required'">
+      </app-error-message>
+    </div>
+
+    <div class="error-message-wrapper">
+      <ngb-timepicker [seconds]="false" formControlName="time"/>
+      <app-error-message
+        *ngIf="form?.controls?.['time']?.errors?.['timeBeforeError']"
+        [errorMessage]="'Date/time cannot be before the current date/time.'">
+      </app-error-message>
+    </div>
+    <button class="app-btn" type="submit" [disabled]="!form.valid">Submit</button>
+  </form>
+</div>

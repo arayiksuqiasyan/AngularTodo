@@ -1,0 +1,236 @@
+@import "../../../styles";
+
+:host {
+  .todoContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $visible-element-3;
+    box-shadow: 0 0 5px $visible-element-3;
+
+    .header {
+      width: 100%;
+      flex-shrink: 0;
+      display: flex;
+      padding: 8px 16px;
+      align-items: center;
+      justify-content: flex-start;
+      background-color: $visible-element-1;
+
+      &_title {
+        color: $text-1;
+        font-size: 12px;
+        font-weight: 700;
+
+      }
+    }
+
+    .body {
+      width: 100%;
+      display: flex;
+      padding: 28px 16px;
+      flex-direction: column;
+      background-color: $visible-element-4;
+
+      .todo {
+        width: 100%;
+        display: flex;
+        font-size: 12px;
+        font-weight: 500;
+        align-items: center;
+        padding: 8px 32px 8px 16px;
+        justify-content: space-between;
+        border: 1px solid $visible-element-3;
+        border-bottom: 0;
+
+        &:last-child {
+          border-bottom: 1px solid $visible-element-3;
+        }
+
+        .todoLeft {
+          display: flex;
+          align-items: center;
+          width: calc(100% - 182px);
+
+          .checkboxLabel {
+            overflow: hidden;
+            white-space: nowrap;
+            display: inline-block;
+            text-overflow: ellipsis;
+          }
+
+          &.isToday {
+            width: calc(100% - 288px);
+          }
+        }
+
+        .todoRight {
+          gap: 32px;
+          width: 288px;
+          flex-grow: 1;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+
+          .favorite {
+            cursor: pointer;
+            line-height: 22px;
+          }
+
+          .deleteBtn {
+            padding: 4px;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            background-color: $visible-element-2;
+
+            i {
+              color: $text-4;
+            }
+          }
+        }
+
+        .titleWrapper {
+          width: 80px;
+          position: relative;
+          text-align: center;
+          white-space: nowrap;
+
+          .title {
+            width: 80px;
+            overflow: hidden;
+            white-space: nowrap;
+            display: inline-block;
+            text-overflow: ellipsis;
+          }
+
+          .todoTitle {
+            left: 50%;
+            top: -32px;
+            font-size: 12px;
+            font-weight: 700;
+            position: absolute;
+            white-space: nowrap;
+            display: inline-block;
+            transform: translateX(-50%);
+          }
+        }
+
+      }
+
+    }
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  :host {
+    .todoContainer {
+
+      .header {
+        width: 100%;
+        flex-shrink: 0;
+        display: flex;
+        padding: 8px 16px;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: $visible-element-1;
+
+        &_title {
+          color: $text-1;
+          font-size: 12px;
+          font-weight: 700;
+
+        }
+      }
+
+      .body {
+        padding: 28px 8px;
+
+        .todo {
+          font-size: 10px;
+          padding: 8px 16px 8px 4px;
+
+          .todoLeft {
+            width: calc(100% - 132px);
+
+            &.isToday {
+              width: calc(100% - 228px);
+            }
+          }
+
+          .todoRight {
+            gap: 12px;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+          }
+
+
+          .titleWrapper {
+            position: relative;
+
+            .todoTitle {
+              left: 50%;
+              top: -32px;
+              font-size: 12px;
+              font-weight: 700;
+              position: absolute;
+              white-space: nowrap;
+              display: inline-block;
+              transform: translateX(-50%);
+            }
+          }
+
+        }
+
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  :host {
+    .todoContainer {
+      .body {
+        .todo {
+          gap: 12px;
+          flex-direction: column;
+
+          .todoLeft {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+
+            &.isToday {
+              width: 100%;
+
+            }
+          }
+
+          .todoRight {
+            width: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+          }
+
+          .titleWrapper {
+            width: fit-content;
+
+            .title {
+              width: fit-content;
+            }
+
+            .todoTitle {
+              top: -64px;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}

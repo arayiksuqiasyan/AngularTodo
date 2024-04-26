@@ -1,0 +1,23 @@
+<div class="listWrapper">
+  <app-todo-list
+    [isToday]="true"
+    [title]="'Today TODO\'s'"
+    [data]="rootService.todayList.value"
+    (onTriggerFavorite)="rootService.onTriggerFavorite($event)"
+    *ngIf="rootService.todayList.value.length;else emptyTodayTodo"
+  >
+  </app-todo-list>
+  <ng-template #emptyTodayTodo>
+    <span>No Have Today Todos</span>
+  </ng-template>
+  <app-todo-list
+    [title]="'My Todo List'"
+    [data]="rootService.allTodos.value"
+    *ngIf="rootService.allTodos.value.length;else empty"
+    (onTriggerFavorite)="rootService.onTriggerFavorite($event)"
+  >
+  </app-todo-list>
+  <ng-template #empty>
+    <span>No Todos</span>
+  </ng-template>
+</div>

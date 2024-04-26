@@ -1,1 +1,90 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/scss/bootstrap';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: arial, sans-serif;
+}
+
+$text-1: #525252;
+$text-2: #c2c2c2;
+$text-3: #ec4322;
+$text-4: #ffffff;
+$visible-element-1: #eeeeee;
+$visible-element-2: #ec4322;
+$visible-element-3: #e4e4e4;
+$visible-element-4: #ffffff;
+$app-paddings: 0 128px;
+$app-paddings-small: 0 32px;
+
+
+input {
+  padding: 0 8px;
+  font-size: 14px;
+  border-radius: 2px;
+  outline: none !important;
+  box-shadow: none !important;
+  border: 1px solid rgb(118, 118, 118) !important;
+
+
+  &:focus,
+  &:focus-visible {
+    border-color: rgb(118, 118, 118) !important;
+
+  }
+}
+
+.error-message-wrapper {
+  width: 100%;
+  height: 43px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.app-btn {
+  outline: none;
+  color: $text-4;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: 0.2s all ease;
+  background-color: $visible-element-2;
+  border: 1px solid $visible-element-2;
+
+  &:hover {
+    color: $text-3;
+    background-color: $visible-element-4;
+  }
+
+  &:disabled{
+    color: $text-2;
+    background-color: $visible-element-1;
+    border: 1px solid $visible-element-1;
+  }
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+
+.ngb-dp-weekdays,
+.ngb-dp-week {
+  justify-content: space-between;
+}
+
+.ngb-dp-month,
+.dropdown-menu {
+  width: 100% !important;
+}
+
+.ngb-tp-input {
+  height: 32px;
+}
+
+.toast-top-center{
+  left: 50%;
+  transform: translateX(-50%);
+}

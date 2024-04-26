@@ -1,0 +1,14 @@
+<div class="header">
+  <span class="header_title">My TODO List</span>
+  <div class="links">
+    <a
+      class="link"
+      [routerLink]="link.path"
+      routerLinkActive="active"
+      *ngFor="let link of links"
+      (click)="activeLinkId = link.id"
+    >
+      <span>{{link.name}}</span>
+    </a>
+  </div>
+</div>

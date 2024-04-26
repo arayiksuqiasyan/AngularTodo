@@ -1,0 +1,19 @@
+<label
+  class="checkbox-container"
+  [class.checked]="checked">
+  <input
+    type="checkbox"
+    class="checkbox-input"
+    [disabled]="disabled"
+    [(ngModel)]="checked"
+    (ngModelChange)="onModelChange($event)"
+  />
+  <div class="checkbox-border">
+    <div class="checkbox-filling">
+      <i class="bi bi-check" *ngIf="checked"></i>
+    </div>
+  </div>
+  <span class="app-label">
+    <ng-content></ng-content>
+  </span>
+</label>

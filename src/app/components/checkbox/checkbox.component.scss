@@ -1,0 +1,57 @@
+@import "../../../styles";
+
+.checkbox-container {
+  padding: 0;
+  display: flex;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  align-items: center;
+
+  .checkbox-input {
+    display: none;
+  }
+
+  .checkbox-border {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $visible-element-3;
+    transition: 0.2s border-color ease-in-out, 0.2s background-color ease-in-out;
+
+    .checkbox-filling {
+      opacity: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      align-items: center;
+      display: inline-flex;
+      justify-content: center;
+      transition: 0.2s opacity ease-in-out;
+
+      i {
+        font-size: 16px;
+        margin-top: 1px;
+        font-weight: 700;
+        color: $visible-element-2;
+      }
+    }
+  }
+
+  .app-label {
+    margin-left: 8px;
+  }
+
+  &.checked {
+    .checkbox-border {
+      border: 1px solid $visible-element-2;
+
+      .checkbox-filling {
+        opacity: 1;
+      }
+    }
+  }
+}
